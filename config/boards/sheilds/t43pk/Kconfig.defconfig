@@ -1,0 +1,7 @@
+if SHIELD_T43PK
+
+config ZMK_BOARD_NAME
+    default "t43pkey"
+    
+endif
+

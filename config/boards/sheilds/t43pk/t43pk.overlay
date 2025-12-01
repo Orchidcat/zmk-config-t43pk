@@ -1,0 +1,119 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/gpio/gpio.h>
+
+/ {
+    chosen {
+        zmk,kscan = $kscan0;
+        zmk,matrix_transform = $default_transform;
+    };
+
+    /* ---------- MCP23017 I2C 地址 0x20（默认全低） ---------- */
+    mcp23017: gpio@20 {
+        compatible = "microchip,mcp23017";
+        reg = <0x20>;
+        status = "okay";
+
+        /* 可选：把两组端口都设为输入 + 上拉（键盘行常用上拉） */
+        gpio-controller;
+        #gpio-cells = <2>;
+
+        /* Port A = row 0~7, Port B = row 8~15 */
+        mcp23017_gpios: gpios {
+            /* 所有 16 根行全部设为输入 + 上拉 */
+            gpio-0 {  gpios = <&gpioa 0 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-1 {  gpios = <&gpioa 1 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-2 {  gpios = <&gpioa 2 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-3 {  gpios = <&gpioa 3 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-4 {  gpios = <&gpioa 4 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-5 {  gpios = <&gpioa 5 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-6 {  gpios = <&gpioa 6 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-7 {  gpios = <&gpioa 7 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-8 {  gpios = <&gpiob 0 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-9 {  gpios = <&gpiob 1 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-10 { gpios = <&gpiob 2 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-11 { gpios = <&gpiob 3 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-12 { gpios = <&gpiob 4 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-13 { gpios = <&gpiob 5 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-14 { gpios = <&gpiob 6 GPIO_INPUT | GPIO_PULL_UP>; };
+            gpio-15 { gpios = <&gpiob 7 GPIO_INPUT | GPIO_PULL_UP>; };
+        };
+    };
+
+
+    /* ---------- 启用 I2C0（nice!nano 默认引脚） ---------- */
+    &i2c0 {
+        status = "okay";
+        sda-pin = <13>;   // P1.13
+        scl-pin = <15>;   // P1.15  （nice!nano v2 板载 I2C 就是这俩）
+        clock-frequency = <400000>;  // 400kHz，快一点没问题
+        mcp23017@20 {
+            compatible = "microchip,mcp23017";
+            reg = <0x20>;
+        };
+    };
+
+/* ---------- 键盘矩阵扫描 ---------- */
+    &kscan0: kscan {
+        compatible = "zmk,kscan-gpio-mcp23017";
+        label = "KSCAN";
+
+        diode-direction = "col2row";   // 绝大多数键盘都是这个
+
+        /* 8 列：全部用 nice!nano 低频引脚（推荐顺序） */
+        col-gpios =
+            <&gpio0  2 GPIO_ACTIVE_HIGH>,  // P0.02
+            <&gpio0  3 GPIO_ACTIVE_HIGH>,  // P0.03
+            <&gpio0  4 GPIO_ACTIVE_HIGH>,  // P0.04
+            <&gpio0  5 GPIO_ACTIVE_HIGH>,  // P0.05
+            <&gpio0 28 GPIO_ACTIVE_HIGH>,  // P0.28
+            <&gpio0 29 GPIO_ACTIVE_HIGH>,  // P0.29
+            <&gpio0 30 GPIO_ACTIVE_HIGH>,  // P0.30
+            <&gpio0 31 GPIO_ACTIVE_HIGH>;  // P0.31
+
+        /* 16 行：全部来自 MCP23017 */
+        row-gpios =
+            <&mcp23017  0 GPIO_ACTIVE_HIGH>,
+            <&mcp23017  1 GPIO_ACTIVE_HIGH>,
+            <&mcp23017  2 GPIO_ACTIVE_HIGH>,
+            <&mcp23017  3 GPIO_ACTIVE_HIGH>,
+            <&mcp23017  4 GPIO_ACTIVE_HIGH>,
+            <&mcp23017  5 GPIO_ACTIVE_HIGH>,
+            <&mcp23017  6 GPIO_ACTIVE_HIGH>,
+            <&mcp23017  7 GPIO_ACTIVE_HIGH>,
+            <&mcp23017  8 GPIO_ACTIVE_HIGH>,
+            <&mcp23017  9 GPIO_ACTIVE_HIGH>,
+            <&mcp23017 10 GPIO_ACTIVE_HIGH>,
+            <&mcp23017 11 GPIO_ACTIVE_HIGH>,
+            <&mcp23017 12 GPIO_ACTIVE_HIGH>,
+            <&mcp23017 13 GPIO_ACTIVE_HIGH>,
+            <&mcp23017 14 GPIO_ACTIVE_HIGH>,
+            <&mcp23017 15 GPIO_ACTIVE_HIGH>;
+    };
+
+    /* ---------- 矩阵映射（这里写成标准 16×8 顺序） ---------- */
+    transform0: matrix_transform {
+        compatible = "zmk,matrix_transform";
+        columns = <8>;
+        rows = <16>;
+
+        /* 完全顺序映射：物理第 0 行第 0 列 → keymap 第 0 行第 0 列 */
+        map = <
+            RC(0,0)  RC(0,1)  RC(0,2)  RC(0,3)  RC(0,4)  RC(0,5)  RC(0,6)  RC(0,7)
+            RC(1,0)  RC(1,1)  RC(1,2)  RC(1,3)  RC(1,4)  RC(1,5)  RC(1,6)  RC(1,7)
+            RC(2,0)  RC(2,1)  RC(2,2)  RC(2,3)  RC(2,4)  RC(2,5)  RC(2,6)  RC(2,7)
+            RC(3,0)  RC(3,1)  RC(3,2)  RC(3,3)  RC(3,4)  RC(3,5)  RC(3,6)  RC(3,7)
+            RC(4,0)  RC(4,1)  RC(4,2)  RC(4,3)  RC(4,4)  RC(4,5)  RC(4,6)  RC(4,7)
+            RC(5,0)  RC(5,1)  RC(5,2)  RC(5,3)  RC(5,4)  RC(5,5)  RC(5,6)  RC(5,7)
+            RC(6,0)  RC(6,1)  RC(6,2)  RC(6,3)  RC(6,4)  RC(6,5)  RC(6,6)  RC(6,7)
+            RC(7,0)  RC(7,1)  RC(7,2)  RC(7,3)  RC(7,4)  RC(7,5)  RC(7,6)  RC(7,7)
+            RC(8,0)  RC(8,1)  RC(8,2)  RC(8,3)  RC(8,4)  RC(8,5)  RC(8,6)  RC(8,7)
+            RC(9,0)  RC(9,1)  RC(9,2)  RC(9,3)  RC(9,4)  RC(9,5)  RC(9,6)  RC(9,7)
+            RC(10,0) RC(10,1) RC(10,2) RC(10,3) RC(10,4) RC(10,5) RC(10,6) RC(10,7)
+            RC(11,0) RC(11,1) RC(11,2) RC(11,3) RC(11,4) RC(11,5) RC(11,6) RC(11,7)
+            RC(12,0) RC(12,1) RC(12,2) RC(12,3) RC(12,4) RC(12,5) RC(12,6) RC(12,7)
+            RC(13,0) RC(13,1) RC(13,2) RC(13,3) RC(13,4) RC(13,5) RC(13,6) RC(13,7)
+            RC(14,0) RC(14,1) RC(14,2) RC(14,3) RC(14,4) RC(14,5) RC(14,6) RC(14,7)
+            RC(15,0) RC(15,1) RC(15,2) RC(15,3) RC(15,4) RC(15,5) RC(15,6) RC(15,7)
+        >;
+    };
+};

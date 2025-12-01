@@ -1,0 +1,65 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h> // 引入蓝牙宏定义
+
+
+//Esc     AccessIBM   vol-    vol+    mute                power   PrtSc    ScrLK   Pause   Insert  Home    PgUp
+//F1      F2      F3      F4	  	F5   F6   F7   F8    F9        F10     F11     F12      del      end     PgDn 
+//`       1    2    3             4      5   6    7      8      9       0           -     =           Backspace  
+//TAB       Q     W    E      R      T       Y      U       I      O       P          [       ]        \   
+//capsLock    A     S    D      F      G       H      J       K      L       ;      '                     ENTER     
+//Shift        Z      X     C     V      B       N      M       ,      .       /                          Shift 
+//Fn   LCTL   LALT                     SPACE                   RALT   RCTL           pageLeft    up   pageright  
+//                            MLeft   MMidlle  MRight                               left       down      right    
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+        default_layer {
+            bindings = <
+                // R0 (特殊功能/F区上排)
+                &kp ESC           &kp N/A /* AccessIBM */   &kp VOLM   &kp VOLP   &kp MUTE   &kp N/A /* 空 */   &kp N/A /* power */   &kp PRTSCR   &kp SCRLCK   &kp PAUSE   &kp INSERT   &kp HOME   &kp PG_UP
+                // R1 (F区)
+                &kp F1            &kp F2          &kp F3            &kp F4             &kp F5     &kp F6     &kp F7     &kp F8     &kp F9            &kp F10           &kp F11           &kp F12           &kp DEL      &kp END      &kp PG_DN
+                // R2 (数字区)
+                &kp GRAVE         &kp N1          &kp N2            &kp N3             &kp N4     &kp N5     &kp N6     &kp N7     &kp N8            &kp N9            &kp N0            &kp MINUS         &kp EQUAL         &kp BACKSPACE
+                // R3 (QWERTY)
+                &kp TAB           &kp Q           &kp W             &kp E              &kp R      &kp T      &kp Y      &kp U      &kp I             &kp O             &kp P             &kp LBRC          &kp RBRC          &kp BSLASH
+                // R4 (ASDF)
+                &kp CAPSLOCK      &kp A           &kp S             &kp D              &kp F      &kp G      &kp H      &kp J      &kp K             &kp L             &kp SEMI          &kp SQT           &kp N/A /* 空 */    &kp ENTER
+                // R5 (ZXCV)
+                &kp LSHIFT        &kp Z           &kp X             &kp C              &kp V      &kp B      &kp N      &kp M      &kp COMMA         &kp DOT           &kp FSLH          &kp N/A /* 空 */    &kp N/A /* 空 */    &kp RSHIFT
+                // R6 (控制键/箭头/TrackPoint)
+                // Fn 使用mo 1 瞬时切换到 Layer 1
+                &mo 1             &kp LCTRL       &kp LALT          &kp SPACE          &kp RALT   &kp RCTRL  &kp N/A /* 空 */   &kp N/A /* 空 */   &kp N/A /* 空 */    &kp PG_UP   &kp UP     &kp PG_DN
+                // R7 (鼠标键/箭头下排)
+                &kp N/A /* 空 */    &kp N/A /* 空 */  &kp N/A /* 空 */  &kp N/A /* 空 */  &kp MB1    &kp MB2    &kp MB3    &kp N/A /* 空 */   &kp N/A /* 空 */    &kp LEFT    &kp DOWN   &kp RIGHT
+            >;
+        };
+
+        // Layer 1: Fn 功能层 (Fn Layer) - 蓝牙控制在此层实现
+        fn_layer {
+            bindings = <
+                // R0 - 保持透传 (Transparent)
+                &trans            &trans          &trans           &trans           &trans           &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
+                // R1 (F区) - 蓝牙功能
+                &bt BT_SEL 0      &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_TOGGLE    &trans          &bt BT_CLR      &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
+                // F1: 切换到设备 1 (BT_SEL 0)
+                // F2: 切换到设备 2 (BT_SEL 1)
+                // F3: 切换到设备 3 (BT_SEL 2)
+                // F4: 切换到设备 4 (BT_SEL 3)
+                // F5: 开启/关闭蓝牙 (BT_TOGGLE)
+                // F6: 透传 (Trans)
+                // F7: 清空蓝牙配对信息 (BT_CLR)
+                
+                // R2 及其以下 - 保持透传
+                &trans            &trans          &trans           &trans           &trans           &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
+                &trans            &trans          &trans           &trans           &trans           &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
+                &trans            &trans          &trans           &trans           &trans           &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
+                &trans            &trans          &trans           &trans           &trans           &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
+                &trans            &trans          &trans           &trans           &trans           &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
+                &trans            &trans          &trans           &trans           &trans           &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
+            >;
+        };
+    };
+};
