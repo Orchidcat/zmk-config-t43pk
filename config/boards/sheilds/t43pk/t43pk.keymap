@@ -17,23 +17,24 @@
         compatible = "zmk,keymap";
         default_layer {
             bindings = <
-                // R0 (特殊功能/F区上排)
-                &kp ESC           &kp N/A /* AccessIBM */   &kp VOLM   &kp VOLP   &kp MUTE   &kp N/A /* 空 */   &kp N/A /* power */   &kp PRTSCR   &kp SCRLCK   &kp PAUSE   &kp INSERT   &kp HOME   &kp PG_UP
-                // R1 (F区)
-                &kp F1            &kp F2          &kp F3            &kp F4             &kp F5     &kp F6     &kp F7     &kp F8     &kp F9            &kp F10           &kp F11           &kp F12           &kp DEL      &kp END      &kp PG_DN
-                // R2 (数字区)
-                &kp GRAVE         &kp N1          &kp N2            &kp N3             &kp N4     &kp N5     &kp N6     &kp N7     &kp N8            &kp N9            &kp N0            &kp MINUS         &kp EQUAL         &kp BACKSPACE
-                // R3 (QWERTY)
-                &kp TAB           &kp Q           &kp W             &kp E              &kp R      &kp T      &kp Y      &kp U      &kp I             &kp O             &kp P             &kp LBRC          &kp RBRC          &kp BSLASH
-                // R4 (ASDF)
-                &kp CAPSLOCK      &kp A           &kp S             &kp D              &kp F      &kp G      &kp H      &kp J      &kp K             &kp L             &kp SEMI          &kp SQT           &kp N/A /* 空 */    &kp ENTER
-                // R5 (ZXCV)
-                &kp LSHIFT        &kp Z           &kp X             &kp C              &kp V      &kp B      &kp N      &kp M      &kp COMMA         &kp DOT           &kp FSLH          &kp N/A /* 空 */    &kp N/A /* 空 */    &kp RSHIFT
-                // R6 (控制键/箭头/TrackPoint)
-                // Fn 使用mo 1 瞬时切换到 Layer 1
-                &mo 1             &kp LCTRL       &kp LALT          &kp SPACE          &kp RALT   &kp RCTRL  &kp N/A /* 空 */   &kp N/A /* 空 */   &kp N/A /* 空 */    &kp PG_UP   &kp UP     &kp PG_DN
-                // R7 (鼠标键/箭头下排)
-                &kp N/A /* 空 */    &kp N/A /* 空 */  &kp N/A /* 空 */  &kp N/A /* 空 */  &kp MB1    &kp MB2    &kp MB3    &kp N/A /* 空 */   &kp N/A /* 空 */    &kp LEFT    &kp DOWN   &kp RIGHT
+            //  C0          C1              C2              C3              C4              C5              C6              C7               
+                &kp N/A     &kp RCTRL       &kp N/A         &kp N/A         &kp N/A         &kp LCTRL       &kp N/A         &kp N/A         //R0 
+                &kp RALT    &kp N/A         &kp PSCRN       &kp SLCK        &kp N/A         &kp N/A         &kp LALT        &kp N/A         //R1
+                &kp N/A     &kp RSHIFT      &kp N/A         &kp N/A         &kp LSHIFT      &kp N/A         &kp N/A         &kp N/A         //R2
+                &kp LEFT    &kp PAUSE_BREAK &kp END         &kp N/A         &kp N/A         &kp HOME        &kp UP          &kp N/A         //R3
+                &kp N/A     &kp Z           &kp N1          &kp Q           &kp TAB         &kp backtick    &kp ESC         &kp A           //R4    backtick
+                &kp pageR   &kp PageL       &kp pagedown    &kp N/A         &kp N/A         &kp pageup      &kp N/A         &kp N/A         //R5    page 相关未找到
+                &kp RIGHT   &kp N/A         &kp F12         &kp N/A         &kp N/A         &kp INSERT      &kp N/A         &kp N/A         //R6
+                &kp DOWN    &kp N/A         &kp F11         &kp K_VOL_UP    &kp K_VOL_DOWN  &kp DEL         &kp AccessIBM   &kp K_MUTE      //R7    AccessIBM 
+                &kp SLASH   &kp N/A         &kp N0          &kp P           &kp LBKT        &kp MINUS       &kp SQT         &kp SEMI        //R8
+                &kp N/A     &kp C           &kp N3          &kp E           &kp F3          &kp F2          &kp F4          &kp D           //R9
+                &kp N/A     &kp Period      &kp N9          &kp O           &kp F7          &kp F8          &kp N/A         &kp L           //R10
+                &kp B       &kp V           &kp N4          &kp R           &kp T           &kp N5          &kp G           &kp F           //R11
+                &kp N/A     &kp X           &kp N2          &kp W           &kp CAPS        &kp F1          &kp N/A         &kp S           //R12
+                &kp SPACE   &kp ENTER       &kp F10         &kp N/A         &kp BACKSPACE   &kp F9          &kp F5          &kp BACKSLASH   //R13
+                &kp N/A     &kp COMMA       &kp N8          &kp I           &kp RBKT        &kp EQUAL       &kp F6          &kp K           //R14
+                &kp N       &kp M           &kp N7          &kp U           &kp Y           &kp N6          &kp H           &kp J           //R15
+                &kp N/A     &kp N/A         &kp N/A         &kp N/A         &kp N/A         &kp N/A         &kp N/A         &kp N/A         //R16
             >;
         };
 
