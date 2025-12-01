@@ -72,14 +72,14 @@
 
         /* 8 列：全部用 nice!nano 低频引脚（推荐顺序） */
         col-gpios =
-            <&gpio0  2 GPIO_ACTIVE_HIGH>,  // P0.02
-            <&gpio0  3 GPIO_ACTIVE_HIGH>,  // P0.03
-            <&gpio0  4 GPIO_ACTIVE_HIGH>,  // P0.04
-            <&gpio0  5 GPIO_ACTIVE_HIGH>,  // P0.05
-            <&gpio0 28 GPIO_ACTIVE_HIGH>,  // P0.28
-            <&gpio0 29 GPIO_ACTIVE_HIGH>,  // P0.29
-            <&gpio0 30 GPIO_ACTIVE_HIGH>,  // P0.30
-            <&gpio0 31 GPIO_ACTIVE_HIGH>;  // P0.31
+            <&gpio0  31 GPIO_ACTIVE_HIGH>,  // P0.31
+            <&gpio0  29 GPIO_ACTIVE_HIGH>,  // P0.29
+            <&gpio0   2 GPIO_ACTIVE_HIGH>,  // P0.02
+            <&gpio1  15 GPIO_ACTIVE_HIGH>,  // P1.15
+            <&gpio1  13 GPIO_ACTIVE_HIGH>,  // P1.13
+            <&gpio1  11 GPIO_ACTIVE_HIGH>,  // P01.11
+            <&gpio0  10 GPIO_ACTIVE_HIGH>,  // P0.10
+            <&gpio0   9 GPIO_ACTIVE_HIGH>;  // P0.09  
 
         /* 16 行：全部来自 MCP23017 */
         row-gpios =
