@@ -43,14 +43,25 @@
     /* ---------- 启用 I2C0（nice!nano 默认引脚） ---------- */
     &i2c0 {
         status = "okay";
-        sda-pin = <13>;   // P1.13
-        scl-pin = <15>;   // P1.15  （nice!nano v2 板载 I2C 就是这俩）
+        sda-pin = <6>;   // P0.06
+        scl-pin = <8>;   // P0.08  （nice!nano v2 板载 I2C 就是这俩）
         clock-frequency = <400000>;  // 400kHz，快一点没问题
         mcp23017@20 {
             compatible = "microchip,mcp23017";
             reg = <0x20>;
         };
     };
+
+    &pinctrl {
+        i2c0_default: i2c0_default {
+            group1 {
+                psels = <NRF_PSEL(I2C_SDA, 0, 6)>,
+                        <NRF_PSEL(I2C_SCL, 0, 8)>;
+                bias-pull-up;
+                nordic,drive-mode = <NRF_DRIVE_S0D1>;
+            };
+        };
+    }；    
 
 /* ---------- 键盘矩阵扫描 ---------- */
     &kscan0: kscan {
