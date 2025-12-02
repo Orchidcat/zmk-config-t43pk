@@ -6,6 +6,8 @@
         zmk,matrix_transform = &transform0;
     };
 
+
+
     &i2c0 {
         status = "okay";
         pinctrl-0 = <&i2c0_custom>;
