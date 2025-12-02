@@ -3,16 +3,16 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,matrix_transform = &transform0;   // 改这里
+        zmk,matrix_transform = &transform0;  
     };
 
     /* ========== I2C0 改成 P0.06 SDA + P0.08 SCL ========== */
     &i2c0 {
         status = "okay";
-        sda-pin = <6>;      // P0.06
-        scl-pin = <8>;      // P0.08
+        sda-pin = <6>;      /* P0.06 */
+        scl-pin = <8>;      /* P0.08 */
         clock-frequency = <400000>;
-        pinctrl-0 = <&i2c0_custom>;          // 必须加这行！
+        pinctrl-0 = <&i2c0_custom>;          
 
         mcp23017: mcp23017@20 {
             compatible = "microchip,mcp23017";
@@ -35,20 +35,20 @@
     };
 
     /* ========== 键盘矩阵 ========== */
-    kscan0: kscan {                              // 去掉 &
+    kscan0: kscan {                              /* 去掉 & */
         compatible = "zmk,kscan-gpio-mcp23017";
         label = "KSCAN";
         diode-direction = "col2row";
 
         col-gpios =
-            <&gpio0 31 GPIO_ACTIVE_HIGH>,  // P0.31
-            <&gpio0 29 GPIO_ACTIVE_HIGH>,  // P0.29
-            <&gpio0  2 GPIO_ACTIVE_HIGH>,  // P0.02
-            <&gpio1 15 GPIO_ACTIVE_HIGH>,  // P1.15
-            <&gpio1 13 GPIO_ACTIVE_HIGH>,  // P1.13
-            <&gpio1 11 GPIO_ACTIVE_HIGH>,  // P1.11
-            <&gpio0 10 GPIO_ACTIVE_HIGH>,  // P0.10
-            <&gpio0  9 GPIO_ACTIVE_HIGH>;  // P0.09
+            <&gpio0 31 GPIO_ACTIVE_HIGH>,  /* P0.31 */
+            <&gpio0 29 GPIO_ACTIVE_HIGH>,  /* P0.29 */
+            <&gpio0  2 GPIO_ACTIVE_HIGH>,  /* P0.02 */
+            <&gpio1 15 GPIO_ACTIVE_HIGH>,  /* P1.15 */
+            <&gpio1 13 GPIO_ACTIVE_HIGH>,  /* P1.13 */
+            <&gpio1 11 GPIO_ACTIVE_HIGH>,  /* P1.11 */
+            <&gpio0 10 GPIO_ACTIVE_HIGH>,  /* P0.10 */
+            <&gpio0  9 GPIO_ACTIVE_HIGH>;  /* P0.09 */
 
         row-gpios =
             <&mcp23017  0 GPIO_ACTIVE_HIGH>,
