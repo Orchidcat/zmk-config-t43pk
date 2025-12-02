@@ -1,5 +1,5 @@
+#include <nordic/nrf52840_qiaa.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h>
 
 / { 
     chosen {
@@ -7,10 +7,10 @@
         zmk,matrix_transform = &transform0;
     };
 
-    &i2c0 { // Use the correct I2C peripheral instance for your board
+    i2c0: i2c@40000 { 
         status = "okay";
 
-        mcp23017: mcp23017@20 { // 0x20 is the default I2C address
+        mcp23017: mcp23017@20 { 
             compatible = "microchip,mcp23017";
             reg = <0x20>; // I2C address
             gpio-controller;
