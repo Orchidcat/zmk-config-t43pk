@@ -34,33 +34,10 @@
                 &kp SPACE   &kp ENTER       &kp F10         &kp N/A         &kp BACKSPACE   &kp F9          &kp F5          &kp BACKSLASH   //R13
                 &kp N/A     &kp COMMA       &kp N8          &kp I           &kp RBKT        &kp EQUAL       &kp F6          &kp K           //R14
                 &kp N       &kp M           &kp N7          &kp U           &kp Y           &kp N6          &kp H           &kp J           //R15
-                &kp N/A     &kp N/A         &kp N/A         &kp N/A         &kp N/A         &kp N/A         &kp N/A         &kp N/A         //R16
             >;
         };
 
         // Layer 1: Fn 功能层 (Fn Layer) - 蓝牙控制在此层实现
-        fn_layer {
-            bindings = <
-                // R0 - 保持透传 (Transparent)
-                &trans            &trans          &trans           &trans           &trans           &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
-                // R1 (F区) - 蓝牙功能
-                &bt BT_SEL 0      &bt BT_SEL 1    &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_TOGGLE    &trans          &bt BT_CLR      &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
-                // F1: 切换到设备 1 (BT_SEL 0)
-                // F2: 切换到设备 2 (BT_SEL 1)
-                // F3: 切换到设备 3 (BT_SEL 2)
-                // F4: 切换到设备 4 (BT_SEL 3)
-                // F5: 开启/关闭蓝牙 (BT_TOGGLE)
-                // F6: 透传 (Trans)
-                // F7: 清空蓝牙配对信息 (BT_CLR)
-                
-                // R2 及其以下 - 保持透传
-                &trans            &trans          &trans           &trans           &trans           &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
-                &trans            &trans          &trans           &trans           &trans           &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
-                &trans            &trans          &trans           &trans           &trans           &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
-                &trans            &trans          &trans           &trans           &trans           &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
-                &trans            &trans          &trans           &trans           &trans           &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
-                &trans            &trans          &trans           &trans           &trans           &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans          &trans
-            >;
-        };
+ 
     };
 };
