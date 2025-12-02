@@ -7,18 +7,17 @@
         zmk,matrix_transform = &transform0;
     };
 
-    i2c0: i2c@40000 { 
+    &i2c0 {                                    // 必须加 &，引用，不能自己再写一个 i2c0
         status = "okay";
+        pinctrl-0 = <&i2c0_custom>;
+        pinctrl-names = "default";
 
-        mcp23017: mcp23017@20 { 
+        mcp23017: mcp23017@20 {
             compatible = "microchip,mcp23017";
-            reg = <0x20>; // I2C address
+            reg = <0x20>;                         // 根据你的 A0~A2 跳线改
             gpio-controller;
             #gpio-cells = <2>;
-            // Define the port A pins (pins 0-7)
-            gpio-ranges = <&mcp23017 0 0 (8)>; 
-            // Define the port B pins (pins 8-15)
-            gpio-ranges = <&mcp23017 8 8 (8)>; 
+            // gpio-ranges 这两行直接删掉！ZMK 用不到
         };
     };
 
