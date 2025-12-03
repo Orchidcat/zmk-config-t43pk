@@ -73,8 +73,8 @@
         reg = <0x20>;
         gpio-controller;
         #gpio-cells = <2>;
-        interrupt-parent = <&gpio0>;
-        interrupts = <17 1>;   /* IRQ_TYPE_EDGE_FALLING */
+      //  interrupt-parent = <&gpio0>;
+      //  interrupts = <17 1>;   /* IRQ_TYPE_EDGE_FALLING */
     };
 };
 
