@@ -6,31 +6,33 @@
         zmk,matrix_transform = &transform0;
     };
 
-    i2c1 {                                    // 必须加 &，引用，不能自己再写一个 i2c0
-         /*
-         * Status must be "okay" to enable the node.
-         * The address 0x20 is the default I2C address for the MCP23017
-         * when hardware address pins (A0, A1, A2) are all low.
-         */
+    // 正确引用并启用 I2C（根据你的接线选 i2c0 或 i2c1）
+    &i2c0 {
         status = "okay";
-        //pinctrl-0 = <&i2c0_custom>;
-        //pinctrl-names = "default";
+        pinctrl-0 = <&i2c0_custom>;      // 你之前注释掉了，记得补上 pinctrl
+        pinctrl-names = "default";
 
         mcp23017: gpio@20 {
             compatible = "microchip,mcp23017";
-            reg = <0x20>;                         // 根据你的 A0~A2 跳线改
+            reg = <0x20>;                  // 这里只写一个地址就行
             gpio-controller;
             #gpio-cells = <2>;
-            // gpio-ranges 这两行直接删掉！ZMK 用不到
 
-            /*
-             * Optional: Define the interrupt pin connection.
-             * Replace <&gpio0 17 IRQ_TYPE_LEVEL_LOW> with your specific
-             * host MCU's GPIO controller and pin number for the MCP23017's INT pin.
-             * The parameters <&gpio_ctlr pin_num flags> are used.
-             */
+            // 如果你接了中断（推荐），否则可以删掉
             interrupt-parent = <&gpio0>;
-            interrupts = <17 1>;
+            interrupts = <17 IRQ_TYPE_EDGE_FALLING>;  // 根据你的引脚改
+        };
+    };
+
+    // 必须补上 pinctrl（否则 I2C 不工作）
+    &pinctrl {
+        i2c0_custom: i2c0_custom {
+            group1 {
+                psels = <NRF_PSEL(I2C_SDA, 0, 6)>,
+                        <NRF_PSEL(I2C_SCL, 0, 8)>;  // 根据你的实际引脚改
+                bias-pull-up;
+                nordic,drive-mode = <NRF_DRIVE_S0D1>;
+            };
         };
     };
 
