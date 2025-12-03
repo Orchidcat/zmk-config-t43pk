@@ -1,6 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h> /* 引入蓝牙宏定义 */
+//#include <dt-bindings/zmk/bt.h> /* 引入蓝牙宏定义 */
 
 
 /*Esc     AccessIBM   vol-    vol+    mute                power   PrtSc    ScrLK   Pause   Insert  Home    PgUp */
@@ -18,26 +18,23 @@
         default_layer {
             bindings = <
             /*  C0          C1              C2              C3              C4              C5              C6              C7            */           
-                &none     &kp RCTRL       &none         &none         &none         &kp LCTRL       &none         &none         /*R0  */
-                &kp RALT    &none         &kp PSCRN       &kp SLCK        &none         &none         &kp LALT        &none         /*R1 */
-                &none     &kp RSHIFT      &none         &none         &kp LSHIFT      &none         &none         &none         /*R2 */
-                &kp LEFT    &kp PAUSE_BREAK &kp END         &none         &none         &kp HOME        &kp UP          &none         /*R3 */
-                &none     &kp Z           &kp N1          &kp Q           &kp TAB         &kp backtick    &kp ESC         &kp A           /*R4    backtick */
-                &kp pageR   &kp PageL       &kp pagedown    &none         &none         &kp pageup      &none         &none         /*R5    page 相关未找到 */
-                &kp RIGHT   &none         &kp F12         &none         &none         &kp INSERT      &none         &none         /*R6 */
-                &kp DOWN    &none         &kp F11         &kp K_VOL_UP    &kp K_VOL_DOWN  &kp DEL         &kp AccessIBM   &kp K_MUTE      /*R7    AccessIBM  */
-                &kp SLASH   &none         &kp N0          &kp P           &kp LBKT        &kp MINUS       &kp SQT         &kp SEMI        /*R8 */
-                &none     &kp C           &kp N3          &kp E           &kp F3          &kp F2          &kp F4          &kp D           /*R9 */
-                &none     &kp Period      &kp N9          &kp O           &kp F7          &kp F8          &none         &kp L           /*R10 */
+                &none       &kp RCTRL       &none           &none           &none           &kp LCTRL       &none           &none         /*R0  */
+                &kp RALT    &none           &kp PSCRN       &kp SLCK        &none           &none           &kp LALT        &none         /*R1 */
+                &none       &kp RSHIFT      &none           &none           &kp LSHIFT      &none           &none           &none         /*R2 */
+                &kp LEFT    &kp PAUSE_BREAK &kp END         &none           &none           &kp HOME        &kp UP          &none         /*R3 */
+                &none       &kp Z           &kp N1          &kp Q           &kp TAB         &none           &kp ESC         &kp A           /*R4    backtick */
+                &kp pageR   &kp PageL       &kp pagedown    &none           &none           &kp pageup      &none           &none         /*R5    page 相关未找到 */
+                &kp RIGHT   &none           &kp F12         &none           &none           &kp INSERT      &none           &none         /*R6 */
+                &kp DOWN    &none           &kp F11         &kp K_VOL_UP    &kp K_VOL_DOWN  &kp DEL         &kp AccessIBM   &kp K_MUTE      /*R7    AccessIBM  */
+                &kp SLASH   &none           &kp N0          &kp P           &kp LBKT        &kp MINUS       &kp SQT         &kp SEMI        /*R8 */
+                &none       &kp C           &kp N3          &kp E           &kp F3          &kp F2          &kp F4          &kp D           /*R9 */
+                &none       &kp Period      &kp N9          &kp O           &kp F7          &kp F8          &none           &kp L           /*R10 */
                 &kp B       &kp V           &kp N4          &kp R           &kp T           &kp N5          &kp G           &kp F           /*R11 */
-                &none     &kp X           &kp N2          &kp W           &kp CAPS        &kp F1          &none         &kp S           /*R12 */
-                &kp SPACE   &kp ENTER       &kp F10         &none         &kp BACKSPACE   &kp F9          &kp F5          &kp BACKSLASH   /*R13 */
-                &none     &kp COMMA       &kp N8          &kp I           &kp RBKT        &kp EQUAL       &kp F6          &kp K           /*R14 */
+                &none       &kp X           &kp N2          &kp W           &kp CAPS        &kp F1          &none           &kp S           /*R12 */
+                &kp SPACE   &kp ENTER       &kp F10         &none           &kp BACKSPACE   &kp F9          &kp F5          &kp BACKSLASH   /*R13 */
+                &none       &kp COMMA       &kp N8          &kp I           &kp RBKT        &kp EQUAL       &kp F6          &kp K           /*R14 */
                 &kp N       &kp M           &kp N7          &kp U           &kp Y           &kp N6          &kp H           &kp J           /*R15 */
             >;
         };
-
-      
- 
     };
 };
