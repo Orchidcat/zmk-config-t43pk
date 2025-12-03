@@ -1,8 +1,8 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
-&gpio0 {
-    status = "okay";
-};
+//&gpio0 {
+ //   status = "okay";
+//};
 
 /* I2C + MCP23017 配置 */
 &i2c0 {
@@ -39,10 +39,6 @@
     };
 };
 
-
-&keymap_layout{
-   transform = <&transform0>; 
-};
 
 
 / {
