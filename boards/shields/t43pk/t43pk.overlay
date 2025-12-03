@@ -21,22 +21,22 @@
         #gpio-cells = <2>;
 
 
-        interrupt-parent = <&gpio0>;
-        /* MCP23017 INT 引脚通常是开漏、低电平有效，所以需要 PULL_UP */
-        interrupts = <28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-      //  interrupt-parent = <&gpio0>;
-      //  interrupts = <17 1>;   /* IRQ_TYPE_EDGE_FALLING */
+    //     interrupt-parent = <&gpio0>;
+    //     /* MCP23017 INT 引脚通常是开漏、低电平有效，所以需要 PULL_UP */
+    //     interrupts = <28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+    //   //  interrupt-parent = <&gpio0>;
+    //   //  interrupts = <17 1>;   /* IRQ_TYPE_EDGE_FALLING */
     };
 };
 
-&gpio0 {
-    /* 1. 声明此节点是一个中断控制器 */
-    interrupt-controller; 
+// &gpio0 {
+//     /* 1. 声明此节点是一个中断控制器 */
+//     interrupt-controller; 
     
-    /* 2. 定义中断单元格的数量。
-       nRF52 的 GPIO 中断需要 2 个单元格：<pin_number flags> */
-    #interrupt-cells = <2>; 
-};
+//     /* 2. 定义中断单元格的数量。
+//        nRF52 的 GPIO 中断需要 2 个单元格：<pin_number flags> */
+//     #interrupt-cells = <2>; 
+// };
 
 /* SDA/SCL 的 pinctrl */
 &pinctrl {
