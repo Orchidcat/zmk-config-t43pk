@@ -83,7 +83,7 @@
 &pinctrl {
     i2c0_custom: i2c0_custom {
         group1 {
-            psels = <NRF_PSEL(I2C_SDA, 0, 6)>,
+            psels = <NRF_PSEL(I2C_SDA, 0, 6)>
                     <NRF_PSEL(I2C_SCL, 0, 8)>;  // 根据你的实际引脚改
             bias-pull-up;
             nordic,drive-mode = <NRF_DRIVE_S0D1>;
