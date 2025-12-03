@@ -19,11 +19,11 @@
             bindings = <
             /*  C0          C1              C2              C3              C4              C5              C6              C7            */           
                 &none       &kp RCTRL       &none           &none           &none           &kp LCTRL       &none           &none         /*R0  */
-                &kp RALT    &none           &kp PSCRN       &kp SLCK        &none           &none           &kp LALT        &none         /*R1 */
+                &kp RALT    &none           &kp PRINTSCREEN &kp SLCK        &none           &none           &kp LALT        &none         /*R1 */
                 &none       &kp RSHIFT      &none           &none           &kp LSHIFT      &none           &none           &none         /*R2 */
                 &kp LEFT    &kp PAUSE_BREAK &kp END         &none           &none           &kp HOME        &kp UP          &none         /*R3 */
                 &none       &kp Z           &kp NUMBER_1    &kp Q           &kp TAB         &none           &kp ESC         &kp A           /*R4    backtick */
-                &none       &none           &note           &none           &none           &none           &none           &none         /*R5    page 相关未找到 */
+                &none       &none           &none           &none           &none           &none           &none           &none         /*R5    page 相关未找到 */
                 &kp RIGHT   &none           &kp F12         &none           &none           &kp INSERT      &none           &none         /*R6 */
                 &kp DOWN    &none           &kp F11         &kp C_VOL_UP    &kp C_VOL_DOWN  &kp DEL         &none           &none           /*R7    AccessIBM  */
                 &kp SLASH   &none           &kp NUMBER_0    &kp P           &kp LBKT        &kp MINUS       &kp SQT         &kp SEMI        /*R8 */
