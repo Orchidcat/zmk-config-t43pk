@@ -17,7 +17,7 @@
                 &kp DOWN    &none           &kp F11         &kp C_VOL_UP    &kp C_VOL_DOWN  &kp DEL         &none           &none
                 &kp SLASH   &none           &kp NUMBER_0    &kp P           &kp LBKT        &kp MINUS       &kp SQT         &kp SEMI
                 &none       &kp C           &kp NUMBER_3    &kp E           &kp F3          &kp F2          &kp F4          &kp D 
-                &none       &kp Period      &kp NUMBER_9    &kp O           &kp F7          &kp F8          &none           &kp L          
+                &none       &kp DOT         &kp NUMBER_9    &kp O           &kp F7          &kp F8          &none           &kp L          
                 &kp B       &kp V           &kp NUMBER_4    &kp R           &kp T           &kp NUMBER_5    &kp G           &kp F
                 &none       &kp X           &kp NUMBER_2    &kp W           &kp CAPS        &kp F1          &none           &kp S
                 &kp SPACE   &kp ENTER       &kp F10         &none           &kp BACKSPACE   &kp F9          &kp F5          &kp BACKSLASH
