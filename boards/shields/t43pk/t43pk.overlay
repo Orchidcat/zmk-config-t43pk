@@ -54,6 +54,9 @@
     /* 物理布局节点定义 */
     keymap_layout: physical-layout { /* <--- 2. 新增整个节点 */
         compatible = "zmk,physical-layout";
+        display-name = "t43pky";
+        rows = <16>;
+        columns = <8>;
         
         /* 16 行 x 8 列 = 128 个按键，索引从 0 到 127 */
         key-positions = <
