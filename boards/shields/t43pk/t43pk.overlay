@@ -75,7 +75,7 @@
 
         // 如果你接了中断（推荐），否则可以删掉
         interrupt-parent = <&gpio0>;
-        interrupts = <17 IRQ_TYPE_EDGE_FALLING>;  // 根据你的引脚改
+        interrupts = <17 1>;  // 根据你的引脚改
     };
 };
 
