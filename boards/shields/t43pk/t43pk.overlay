@@ -1,5 +1,50 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
+&gpio0 {
+    status = "okay";
+};
+
+&kscan0 {
+    status = "okay";
+};
+
+/* I2C + MCP23017 配置 */
+&i2c0 {
+    status = "okay";
+    pinctrl-names = "default", "sleep";
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
+
+    mcp23017: mcp23017@20 {
+        compatible = "microchip,mcp23017";
+        reg = <0x20>;
+        gpio-controller;
+        #gpio-cells = <2>;
+      //  interrupt-parent = <&gpio0>;
+      //  interrupts = <17 1>;   /* IRQ_TYPE_EDGE_FALLING */
+    };
+};
+
+/* SDA/SCL 的 pinctrl */
+&pinctrl {
+    i2c0_default: i2c0_default {
+        group1 {
+            psels = <0 6>, <0 8>; /* SDA= P0.06, SCL= P0.08 */
+            bias-pull-up;
+            nordic,drive-mode = <NRF_DRIVE_S0D1>;
+        };
+    };
+
+    i2c0_sleep: i2c0_sleep {
+        group1 {
+            psels = <0 6>, <0 8>;
+            bias-pull-up;
+        };
+    };
+};
+
+
+
 / {
     chosen {
         zmk,kscan = &kscan0;
@@ -61,37 +106,4 @@
     };
 };
 
-/* I2C + MCP23017 配置 */
-&i2c0 {
-    status = "okay";
-    pinctrl-names = "default", "sleep";
-    pinctrl-0 = <&i2c0_default>;
-    pinctrl-1 = <&i2c0_sleep>;
 
-    mcp23017: mcp23017@20 {
-        compatible = "microchip,mcp23017";
-        reg = <0x20>;
-        gpio-controller;
-        #gpio-cells = <2>;
-      //  interrupt-parent = <&gpio0>;
-      //  interrupts = <17 1>;   /* IRQ_TYPE_EDGE_FALLING */
-    };
-};
-
-/* SDA/SCL 的 pinctrl */
-&pinctrl {
-    i2c0_default: i2c0_default {
-        group1 {
-            psels = <0 6>, <0 8>; /* SDA= P0.06, SCL= P0.08 */
-            bias-pull-up;
-            nordic,drive-mode = <NRF_DRIVE_S0D1>;
-        };
-    };
-
-    i2c0_sleep: i2c0_sleep {
-        group1 {
-            psels = <0 6>, <0 8>;
-            bias-pull-up;
-        };
-    };
-};
