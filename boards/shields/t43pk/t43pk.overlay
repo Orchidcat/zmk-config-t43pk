@@ -12,6 +12,7 @@
     pinctrl-1 = <&i2c0_sleep>;
 
     mcp23017: mcp23017@20 {
+        status = "okay";
         compatible = "microchip,mcp23017";
         reg = <0x20>;
         gpio-controller;
@@ -51,7 +52,7 @@
     
     /* 键盘扫描矩阵（8 列 + 16 行） */
     kscan0: kscan {
-        compatible = "zmk,kscan-gpio-mcp23017";
+        compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
         diode-direction = "col2row";
 
