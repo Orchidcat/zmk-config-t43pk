@@ -55,6 +55,7 @@
         transform = <&transform0>;
         
         positions {
+            compatible = "zmk,key-positions";
         /* 16 行 x 8 列 = 128 个按键，索引从 0 到 127 */
             key-positions = <
                 0   1   2   3   4   5   6   7
