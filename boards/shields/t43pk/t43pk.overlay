@@ -57,6 +57,7 @@
         display-name = "t43pky";
         rows = <16>;
         columns = <8>;
+        transform = <&transform0>;
         
         /* 16 行 x 8 列 = 128 个按键，索引从 0 到 127 */
         key-positions = <
