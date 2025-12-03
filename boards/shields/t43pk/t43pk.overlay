@@ -1,19 +1,18 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
-/ { 
+/ {
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &transform0;
     };
 
-    
-
-    
+    /* 键盘扫描矩阵（8 列 + 16 行） */
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-mcp23017";
         label = "KSCAN";
         diode-direction = "col2row";
 
+        /* 主控本地 8 列 */
         col-gpios =
             <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
@@ -24,6 +23,7 @@
             <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
             <&gpio0  9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 
+        /* MCP23017 的 16 行 */
         row-gpios =
             <&mcp23017  0 GPIO_ACTIVE_HIGH>, <&mcp23017  1 GPIO_ACTIVE_HIGH>,
             <&mcp23017  2 GPIO_ACTIVE_HIGH>, <&mcp23017  3 GPIO_ACTIVE_HIGH>,
@@ -35,6 +35,7 @@
             <&mcp23017 14 GPIO_ACTIVE_HIGH>, <&mcp23017 15 GPIO_ACTIVE_HIGH>;
     };
 
+    /* ZMK 键位矩阵映射转换 */
     transform0: matrix_transform {
         compatible = "zmk,matrix_transform";
         columns = <8>;
@@ -60,33 +61,37 @@
     };
 };
 
-
-// 正确引用并启用 I2C（根据你的接线选 i2c0 或 i2c1）
+/* I2C + MCP23017 配置 */
 &i2c0 {
     status = "okay";
-    pinctrl-0 = <&i2c0_custom>;      // 你之前注释掉了，记得补上 pinctrl
-    pinctrl-names = "default";
+    pinctrl-names = "default", "sleep";
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
 
     mcp23017: mcp23017@20 {
         compatible = "microchip,mcp23017";
-        reg = <0x20>;                  // 这里只写一个地址就行
+        reg = <0x20>;
         gpio-controller;
         #gpio-cells = <2>;
-
-        // 如果你接了中断（推荐），否则可以删掉
         interrupt-parent = <&gpio0>;
-        interrupts = <17 1>;  // 根据你的引脚改
+        interrupts = <17 1>;   /* IRQ_TYPE_EDGE_FALLING */
     };
 };
 
-// 必须补上 pinctrl（否则 I2C 不工作）
+/* SDA/SCL 的 pinctrl */
 &pinctrl {
-    i2c0_custom: i2c0_custom {
+    i2c0_default: i2c0_default {
         group1 {
-             psels = <0 6   // SDA
-                     0 8>; // SCL
+            psels = <0 6>, <0 8>; /* SDA= P0.06, SCL= P0.08 */
             bias-pull-up;
             nordic,drive-mode = <NRF_DRIVE_S0D1>;
+        };
+    };
+
+    i2c0_sleep: i2c0_sleep {
+        group1 {
+            psels = <0 6>, <0 8>;
+            bias-pull-up;
         };
     };
 };
