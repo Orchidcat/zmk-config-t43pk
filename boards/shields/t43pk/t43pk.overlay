@@ -13,7 +13,8 @@
 
     mcp23017: mcp23017@20 {
         status = "okay";
-        compatible = "microchip,mcp23017";
+        compatible = "microchip,mcp230xx";
+        gpio-ngpios = <16>;
         reg = <0x20>;
         gpio-controller;
         #gpio-cells = <2>;
