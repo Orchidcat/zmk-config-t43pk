@@ -7,6 +7,7 @@
 /* I2C + MCP23017 配置 */
 &i2c0 {
     status = "okay";
+    clock-frequency = <I2C_BITRATE_FAST>;
     pinctrl-names = "default", "sleep";
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
@@ -18,6 +19,11 @@
         reg = <0x20>;
         gpio-controller;
         #gpio-cells = <2>;
+
+        
+        interrupt-parent = <&gpio0>;
+        /* MCP23017 INT 引脚通常是开漏、低电平有效，所以需要 PULL_UP */
+        interrupts = <28 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
       //  interrupt-parent = <&gpio0>;
       //  interrupts = <17 1>;   /* IRQ_TYPE_EDGE_FALLING */
     };
