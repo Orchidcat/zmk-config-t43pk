@@ -4,10 +4,6 @@
     status = "okay";
 };
 
-&kscan0 {
-    status = "okay";
-};
-
 /* I2C + MCP23017 配置 */
 &i2c0 {
     status = "okay";
