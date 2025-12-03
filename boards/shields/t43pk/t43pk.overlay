@@ -13,8 +13,8 @@
          * when hardware address pins (A0, A1, A2) are all low.
          */
         status = "okay";
-        pinctrl-0 = <&i2c0_custom>;
-        pinctrl-names = "default";
+        //pinctrl-0 = <&i2c0_custom>;
+        //pinctrl-names = "default";
 
         mcp23017: gpio@20 {
             compatible = "microchip,mcp23017";
