@@ -41,9 +41,6 @@
 
 
 
-
-
-
 / {
     chosen {
         zmk,kscan = &kscan0;
@@ -52,7 +49,7 @@
     };
 
     /* 物理布局节点定义 */
-    keymap_layout: physical-layout { /* <--- 2. 新增整个节点 */
+    keymap_layout: physical_layout { /* <--- 2. 新增整个节点 */
         compatible = "zmk,physical-layout";
         display-name = "t43pky";
         transform = <&transform0>;
