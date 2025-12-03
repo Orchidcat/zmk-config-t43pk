@@ -1,4 +1,3 @@
-#include <nordic/nrf52840_qiaa.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
 
 / { 
@@ -7,17 +6,31 @@
         zmk,matrix_transform = &transform0;
     };
 
-    &i2c0 {                                    // 必须加 &，引用，不能自己再写一个 i2c0
+    i2c1 {                                    // 必须加 &，引用，不能自己再写一个 i2c0
+         /*
+         * Status must be "okay" to enable the node.
+         * The address 0x20 is the default I2C address for the MCP23017
+         * when hardware address pins (A0, A1, A2) are all low.
+         */
         status = "okay";
         pinctrl-0 = <&i2c0_custom>;
         pinctrl-names = "default";
 
-        mcp23017: mcp23017@20 {
+        mcp23017: gpio@20 {
             compatible = "microchip,mcp23017";
             reg = <0x20>;                         // 根据你的 A0~A2 跳线改
             gpio-controller;
             #gpio-cells = <2>;
             // gpio-ranges 这两行直接删掉！ZMK 用不到
+
+            /*
+             * Optional: Define the interrupt pin connection.
+             * Replace <&gpio0 17 IRQ_TYPE_LEVEL_LOW> with your specific
+             * host MCU's GPIO controller and pin number for the MCP23017's INT pin.
+             * The parameters <&gpio_ctlr pin_num flags> are used.
+             */
+            interrupt-parent = <&gpio0>;
+            interrupts = <17 IRQ_TYPE_LEVEL_LOW>;
         };
     };
 
