@@ -14,7 +14,7 @@
                 &none       &kp Z           &kp NUMBER_1    &kp Q           &kp TAB         &none           &kp ESC         &kp A           /*R4    backtick */
                 &none       &none           &none           &none           &none           &none           &none           &none         /*R5    page 相关未找到 */
                 &kp RIGHT   &none           &kp F12         &none           &none           &kp INSERT      &none           &none         /*R6 */
-                &kp DOWN    &none           &kp F11         &kp C_VOL_UP    &kp C_VOL_DOWN  &kp DEL         &none           &none           /*R7    AccessIBM  */
+                &kp DOWN    &none           &kp F11         &kp C_VOL_UP    &kp C_VOL_DOWN  &kp DEL         &none           &none
                 &kp SLASH   &none           &kp NUMBER_0    &kp P           &kp LBKT        &kp MINUS       &kp SQT         &kp SEMI        /*R8 */
                 &none       &kp C           &kp NUMBER_3    &kp E           &kp F3          &kp F2          &kp F4          &kp D           /*R9 */
                 &none       &kp Period      &kp NUMBER_9    &kp O           &kp F7          &kp F8          &none           &kp L           /*R10 */
