@@ -10,7 +10,7 @@
                 &none       &kp RCTRL       &none           &none           &none           &kp LCTRL       &none           &none
                 &kp RALT    &none           &kp PRINTSCREEN &kp SLCK        &none           &none           &kp LALT        &none
                 &none       &kp RSHIFT      &none           &none           &kp LSHIFT      &none           &none           &none
-                &kp LEFT    &kp PAUSE       &none           &none           &none           &kp HOME        &kp UP          &none
+                &kp LEFT    &none           &none           &none           &none           &kp HOME        &kp UP          &none
                 &none       &kp Z           &kp NUMBER_1    &kp Q           &kp TAB         &none           &kp ESC         &kp A
                 &none       &none           &none           &none           &none           &none           &none           &none
                 &kp RIGHT   &none           &kp F12         &none           &none           &kp INSERT      &none           &none
