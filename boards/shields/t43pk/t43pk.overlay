@@ -65,13 +65,7 @@
         zmk,matrix-transform  = &transform0;
     };
 
-    /* 物理布局节点定义 */
-
-    key_positions {
-        power_key: power_key {
-            gpios = <&gpio0 14 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-        };
-    };
+    
     
     /* 键盘扫描矩阵（8 列 + 16 行） */
     kscan0: kscan {
