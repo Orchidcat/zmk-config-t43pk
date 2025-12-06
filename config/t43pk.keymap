@@ -7,7 +7,7 @@
 
         default_layer {
             bindings = <
-                &trans      // 这是一个占位符，用来保证矩阵是 1x1
+                &kp A      // 这是一个占位符，用来保证矩阵是 1x1
             >;
         };
 
