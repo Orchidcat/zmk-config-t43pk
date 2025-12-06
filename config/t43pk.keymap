@@ -1,19 +1,18 @@
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
+
 
 / {
+    chosen {
+        zmk,keymap = &keymap;
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
+            label = "Base";
             bindings = <
                 &kp A      // 这是一个占位符，用来保证矩阵是 1x1
-            >;
-        };
-
-        test_layer {
-            bindings = <
-                &bt BT_CLR  // 将这个键绑定到你实际的物理按键上
             >;
         };
     };
