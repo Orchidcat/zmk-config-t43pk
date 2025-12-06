@@ -2,9 +2,6 @@
 
 
 / {
-    chosen {
-        zmk,keymap = &keymap;
-    };
 
     keymap {
         compatible = "zmk,keymap";
