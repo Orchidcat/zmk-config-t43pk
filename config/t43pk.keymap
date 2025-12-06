@@ -1,38 +1,20 @@
-#include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
-
-/*针对软关机设定*/
-&soft_off {
-    hold-time-ms = <5000>; // Only turn off it the key is held for 5 seconds or longer.
-};
-
+#include <dt-bindings/zmk/bt.h>
 
 / {
     keymap {
         compatible = "zmk,keymap";
+
         default_layer {
             bindings = <
-            /*  C0          C1              C2              C3              C4              C5              C6              C7            */           
-                &none       &kp RCTRL       &none           &none           &none           &kp LCTRL       &none           &none
-                &kp RALT    &none           &kp PRINTSCREEN &kp SLCK        &none           &none           &kp LALT        &none
-                &none       &kp RSHIFT      &none           &none           &kp LSHIFT      &none           &none           &none
-                &kp LEFT    &none           &none           &none           &none           &kp HOME        &kp UP          &none
-                &none       &kp Z           &kp NUMBER_1    &kp Q           &kp TAB         &none           &kp ESC         &kp A
-                &none       &none           &none           &none           &none           &none           &none           &none
-                &kp RIGHT   &none           &kp F12         &none           &none           &kp INSERT      &none           &none
-                &kp DOWN    &none           &kp F11         &none           &none           &kp DEL         &none           &none
-                &none       &none           &kp NUMBER_0    &kp P           &kp LBKT        &kp MINUS       &kp SQT         &kp SEMI
-                &none       &kp C           &kp NUMBER_3    &kp E           &kp F3          &kp F2          &kp F4          &kp D
-                &none       &kp DOT         &kp NUMBER_9    &kp O           &kp F7          &kp F8          &none           &kp L
-                &kp B       &kp V           &kp NUMBER_4    &kp R           &kp T           &kp NUMBER_5    &kp G           &kp F
-                &none       &kp X           &kp NUMBER_2    &kp W           &kp CAPSLOCK    &kp F1          &none           &kp S
-                &kp SPACE   &kp ENTER       &kp F10         &none           &kp BACKSPACE   &kp F9          &kp F5          &kp BACKSLASH
-                &none       &kp COMMA       &kp NUMBER_8    &kp I           &kp RBKT        &kp EQUAL       &kp F6          &kp K
-                &kp N       &kp M           &kp NUMBER_7    &kp U           &kp Y           &kp NUMBER_6    &kp H           &kp J
+                &trans      // 这是一个占位符，用来保证矩阵是 1x1
+            >;
+        };
+
+        test_layer {
+            bindings = <
+                &bt BT_CLR  // 将这个键绑定到你实际的物理按键上
             >;
         };
     };
-
-     
-
 };
