@@ -1,7 +1,10 @@
 if SHIELD_T43PK
 
 config ZMK_KEYBOARD_NAME
-    default "t43pkey"
+    default "t43pk"
+
+config I2C
+    default y
  
 endif
 
