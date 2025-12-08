@@ -14,7 +14,7 @@
         status = "okay";
         compatible = "microchip,mcp230xx";
         ngpios = <16>;
-        int-gpios = <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>；
+        int-gpios = <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         reg = <0x20>;
         gpio-controller;
         #gpio-cells = <2>;
