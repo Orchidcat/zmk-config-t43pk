@@ -14,6 +14,7 @@
         status = "okay";
         compatible = "microchip,mcp230xx";
         ngpios = <16>;
+        int-gpios = <&gpio1 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>；
         reg = <0x20>;
         gpio-controller;
         #gpio-cells = <2>;
@@ -43,28 +44,6 @@
         group1 {
             psels = <NRF_PSEL(TWIM_SDA, 0, 6)>,   // P0.06 作为 I2C SDA
                     <NRF_PSEL(TWIM_SCL, 0, 8)>;   // P0.08 作为 I2C SCL
-            bias-pull-up;
-        };
-    };
-
-    // 列（作为普通 GPIO 输出）
-    column_pins: column_pins {
-        group1 {
-            psels = <NRF_PSEL(GPIO, 0, 31)>,
-                    <NRF_PSEL(GPIO, 0, 29)>,
-                    <NRF_PSEL(GPIO, 0, 2)>,
-                    <NRF_PSEL(GPIO, 0, 15)>,
-                    <NRF_PSEL(GPIO, 1, 13)>,
-                    <NRF_PSEL(GPIO, 1, 11)>,
-                    <NRF_PSEL(GPIO, 0, 10)>,
-                    <NRF_PSEL(GPIO, 0, 9)>;
-        };
-    };
-
-    // 中断引脚：P0.15
-    mcp_int_pin: mcp_int_pin {
-        group1 {
-            psels = <NRF_PSEL(GPIO, 0, 15)>;
             bias-pull-up;
         };
     };
