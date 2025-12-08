@@ -1,9 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/zmk/ext_power.h>
 
-//&gpio0 {
- //   status = "okay";
-//};
 
 /* I2C + MCP23017 配置 */
 &i2c0 {
@@ -30,21 +27,13 @@
     };
 };
 
-// &gpio0 {
-//     /* 1. 声明此节点是一个中断控制器 */
-//     interrupt-controller; 
-    
-//     /* 2. 定义中断单元格的数量。
-//        nRF52 的 GPIO 中断需要 2 个单元格：<pin_number flags> */
-//     #interrupt-cells = <2>; 
-// };
 
 /* SDA/SCL 的 pinctrl */
 &pinctrl {
     i2c0_default: i2c0_default {
         group1 {
-            psels = <NRF_PSEL(I2C_SDA, 0, 6)>,
-                    <NRF_PSEL(I2C_SCL, 0, 8)>; /* SDA= P0.06, SCL= P0.08 */
+            psels = <0, 6>,
+                    <0, 8>; /* SDA= P0.06, SCL= P0.08 */
             bias-pull-up;
             nordic,drive-mode = <NRF_DRIVE_S0D1>;
         };
@@ -52,8 +41,8 @@
 
     i2c0_sleep: i2c0_sleep {
         group1 {
-             psels = <NRF_PSEL(I2C_SDA, 0, 6)>,
-                     <NRF_PSEL(I2C_SCL, 0, 8)>; /* SDA= P0.06, SCL= P0.08 */
+             psels = <0, 6>,
+                     < 0, 8>; /* SDA= P0.06, SCL= P0.08 */
             bias-pull-up;
         };
     };
