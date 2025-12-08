@@ -13,7 +13,7 @@
         default_layer {
             bindings = <
             /*  C0          C1              C2              C3              C4              C5              C6              C7            */           
-                &none       &kp RCTRL       &none           &none           &none           &kp LCTRL       &none           &none
+                &bt BT_CLR_ALL       &kp RCTRL       &none           &none           &none           &kp LCTRL       &none           &none
                 &kp RALT    &none           &kp PRINTSCREEN &kp SLCK        &none           &none           &kp LALT        &none
                 &none       &kp RSHIFT      &none           &none           &kp LSHIFT      &none           &none           &none
                 &kp LEFT    &none           &none           &none           &none           &kp HOME        &kp UP          &none
