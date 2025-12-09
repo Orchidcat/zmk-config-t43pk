@@ -12,6 +12,7 @@
     keymap {
         compatible = "zmk,keymap";
         default_layer {
+            display-name = "Base";
             bindings = <
             /*  C0          C1              C2              C3              C4              C5              C6              C7                       
                 &bt BT_CLR_ALL       &kp RCTRL       &none           &none           &none           &kp LCTRL       &none           &none
@@ -37,7 +38,7 @@
                 &kp TAB &kp Q &kp W &kp E &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P &kp LBKT &kp RBKT &kp NUBS
                 &kp CAPSLOCK  &kp A &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L &kp SEMICOLON &kp SQT &kp ENTER
                 &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp SLASH &kp RSHIFT
-                &kp LCTRL &kp LALT &kp SPACE &kp RALT &kp RCTRL &kp UP
+                &mo 1 &kp LCTRL &kp LALT &kp SPACE &kp RALT &kp RCTRL &kp UP
                 &kp LEFT &kp DOWN &kp RIGHT
 
             >;
