@@ -13,7 +13,7 @@
         compatible = "zmk,keymap";
         default_layer {
             bindings = <
-            /*  C0          C1              C2              C3              C4              C5              C6              C7            */           
+            /*  C0          C1              C2              C3              C4              C5              C6              C7                       
                 &bt BT_CLR_ALL       &kp RCTRL       &none           &none           &none           &kp LCTRL       &none           &none
                 &kp RALT    &none           &kp PRINTSCREEN &kp SLCK        &none           &none           &kp LALT        &none
                 &none       &kp RSHIFT      &none           &none           &kp LSHIFT      &none           &none           &none
@@ -29,11 +29,19 @@
                 &none       &kp X           &kp NUMBER_2    &kp W           &kp CAPSLOCK    &kp F1          &none           &kp S
                 &kp SPACE   &kp ENTER       &kp F10         &none           &kp BACKSPACE   &kp F9          &kp F5          &kp BACKSLASH
                 &none       &kp COMMA       &kp NUMBER_8    &kp I           &kp RBKT        &kp EQUAL       &kp F6          &kp K
-                &kp N       &kp M           &kp NUMBER_7    &kp U           &kp Y           &kp NUMBER_6    &kp H           &kp J
+                &kp N       &kp M           &kp NUMBER_7    &kp U           &kp Y           &kp NUMBER_6    &kp H           &kp J */
+
+                &kp ESC         &kp C_VOL_UP    &kp C_VOL_DN    &kp C_MUTE      &kp PRINTSCREEN &kp SCROLLLOCK  &kp PAUSE_BREAK     &kp INSERT      &kp HOME    &kp PAGE_UP
+                &kp F1          &kp F2          &kp F3          &kp F4          &kp F5          &kp F6          &kp F7              &kp F8          &kp F9      &kp F10     &kp F11  &kp F12  &kp DELETE &kp END &kp PAGE_DOWN 
+                &kp GRAVE       &kp KP_N1       &kp KP_N2       &kp KP_N3       &kp KP_N4       &kp KP_N5       &kp KP_N6           &kp KP_N7       &kp KP_N8       &kp KP_N9       &kp KP_N0 &kp MINUS &kp EQUAL &kp BACKSPACE
+                &kp TAB &kp Q &kp W &kp E &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P &kp LBKT &kp RBKT &kp NUBS
+                &kp CAPSLOCK  &kp A &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L &kp SEMICOLON &kp SQT &kp ENTER
+                &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp SLASH &kp RSHIFT
+                &kp LCTRL &kp LALT &kp SPACE &kp RALT &kp RCTRL &kp UP
+                &kp LEFT &kp DOWN &kp RIGHT
+
             >;
         };
     };
-
-     
 
 };
