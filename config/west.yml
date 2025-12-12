@@ -1,6 +1,6 @@
 manifest:
-  defaults:
-    revision: v0.3
+#  defaults:
+#    revision: v0.3
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
@@ -15,9 +15,9 @@ manifest:
   #    remote: zmkfirmware
   #    import: app/west.yml
     - name: zmk
-        remote: infused-kim
-        revision: pr-testing/mouse_ps2_module_base
-        import: app/west.yml
+      remote: infused-kim
+      revision: pr-testing/mouse_ps2_module_base
+      import: app/west.yml
     # Module for PS/2 mouse & TP driver
     - name: kb_zmk_ps2_mouse_trackpoint_driver
       remote: infused-kim
