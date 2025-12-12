@@ -245,7 +245,7 @@
             row-offset = <16>;// 偏移量：让 Fn 键在逻辑上位于 "第16行" (从0开始数就是第17行)
         };
 
-    }
+    };
 
     /* 2. 原来的矩阵配置 (改名为 kscan_matrix) */
     kscan_matrix: kscan_matrix {
