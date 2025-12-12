@@ -237,13 +237,13 @@
         matix {
             kscan = <&kscan_matrix>;
 
-        }；
+        };
 
         //fn 键（直连GPIO）
         fn_key {
             kscan = <&kscan_fn>;
             row-offset = <16>;// 偏移量：让 Fn 键在逻辑上位于 "第16行" (从0开始数就是第17行)
-        }；
+        };
 
     }
 
@@ -252,8 +252,6 @@
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";
        
-    
-
         /* 主控本地 8 列 */
         col-gpios =
             <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
@@ -310,7 +308,6 @@
             RC(15,0) RC(15,1) RC(15,2) RC(15,3) RC(15,4) RC(15,5) RC(15,6) RC(15,7) 
         >; */
 
-
         map =<
             RC(4,6)  RC(7,6) RC(7,3) RC(7,4) RC(7,7) RC(1,2) RC(1,3) RC(3,1) RC(6,5) RC(3,5) RC(5,5)
             RC(12,5) RC(9,5) RC(9,4) RC(9,6) RC(13,6) RC(14,6) RC(10,4) RC(10,5) RC(13,5) RC(13,2) RC(7,2) RC(6,2) RC(7,5) RC(3,2) RC(5,2)
@@ -322,9 +319,6 @@
             RC(3,0) RC(7,0) RC(6,0)
             RC(16,0)
             >;
-    };
-
-
-    
+    };  
 };
 
