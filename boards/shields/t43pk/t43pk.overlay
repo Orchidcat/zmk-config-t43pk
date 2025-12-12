@@ -76,16 +76,16 @@
 	// For `UART_RX`, set the PS/2 SDA pin number
 	uart0_ps2_default: uart0_ps2_default {
 		group1 {
-			psels = MOUSE_PS2_PIN_UNEXPOSED_TX,
-					MOUSE_PS2_PIN_SDA_PINCTRL;
+			psels = <MOUSE_PS2_PIN_UNEXPOSED_TX,
+					MOUSE_PS2_PIN_SDA_PINCTRL>;
 		};
 	};
 
 	// Set this to the same pins as uart0_ps2_default
 	uart0_ps2_sleep: uart0_ps2_sleep {
 		group1 {
-			psels = MOUSE_PS2_PIN_UNEXPOSED_TX,
-					MOUSE_PS2_PIN_SDA_PINCTRL;
+			psels = <MOUSE_PS2_PIN_UNEXPOSED_TX,
+					MOUSE_PS2_PIN_SDA_PINCTRL>;
 			low-power-enable;
 		};
 	};
@@ -241,7 +241,7 @@
         //fn 键（直连GPIO）
         fn_key {
             kscan = <&kscan_fn>;
-            row-offset = <16>; // 偏移量：让 Fn 键在逻辑上位于 "第16行" (从0开始数就是第17行)
+            row-offset = <16>;// 偏移量：让 Fn 键在逻辑上位于 "第16行" (从0开始数就是第17行)
         }；
 
     }
