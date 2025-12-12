@@ -220,6 +220,14 @@
         };
     };
 
+    ps2_tp: ps2-trackpoint {
+        compatible = "zmk,ps2-mouse";
+        label = "TP_PS2";
+        clk-gpios = <&gpio0 18 GPIO_ACTIVE_HIGH>;
+        data-gpios = <&gpio0 19 GPIO_ACTIVE_HIGH>;
+        // 以上引脚替换为你实际使用的 GPIO
+        };
+
     
 
 
