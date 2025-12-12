@@ -73,7 +73,8 @@
                 &none &none &none &none &none &none &none &none &none &none &none &none 
                 &none &none &none &none &none &none
                 &none &none &none
-                &trans  //fn key
+                &trans  
+            >;
         };
 
     };
