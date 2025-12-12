@@ -228,7 +228,7 @@
     kscan0: kscan_composite {
         compatible = "zmk,kscan-composite";
         label = "KSCAN_COMPOSITE";
-        diode-direction = "col2row";   //二级管方向，非常重要，方向错误无法使用
+        
         
         rows = <17>;     // 原矩阵16行 + (Fn键 power键) 占1行
         columns = <8>;   // 保持8列
@@ -250,7 +250,7 @@
     /* 2. 原来的矩阵配置 (改名为 kscan_matrix) */
     kscan_matrix: kscan_matrix {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row";
+        diode-direction = "col2row"; //二级管方向，非常重要，方向错误无法使用
        
         /* 主控本地 8 列 */
         col-gpios =
