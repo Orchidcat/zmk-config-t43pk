@@ -53,11 +53,26 @@
                 &kp TAB &kp Q &kp W &kp E &kp R  &kp T  &kp Y  &kp U  &kp I  &kp O  &kp P &kp LBKT &kp RBKT &kp NUBS
                 &kp CAPSLOCK  &kp A &kp S  &kp D  &kp F  &kp G  &kp H  &kp J  &kp K  &kp L &kp SEMICOLON &kp SQT &kp ENTER
                 &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp SLASH &kp RSHIFT
-                &mo 1 &kp LCTRL &kp LALT &kp SPACE &kp RALT &kp RCTRL &kp UP
-                &kp LEFT &kp DOWN &kp RIGHT
+                &kp LCTRL &kp LALT &kp SPACE &kp RALT &kp RCTRL &kp UP
+                &kp LEFT &kp DOWN &kp RIGHT 
+                &mo BT   // Fn key
 
             >;
         };
+
+        BT {
+            bindings = <
+                &none &none &none &none &none &none &none &none &none &none
+                &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_CLR      &bt BT_DISC     &none &none &none &none &none &none &none &none &none &none
+                &none &none &none &none &none &none &none &none &none &none &none &none &none &none 
+                &none &none &none &none &none &none &none &none &none &none &none &none &none &none 
+                &none &none &none &none &none &none &none &none &none &none &none &none &none 
+                &none &none &none &none &none &none &none &none &none &none &none &none 
+                &none &none &none &none &none &none
+                &none &none &none
+                &trans  //fn key
+        };
+
     };
 
 };
