@@ -3,6 +3,9 @@
 #include <dt-bindings/zmk/keys.h>
 
 
+#define BT 1
+
+
 // https://zmk.dev/docs/development/hardware-integration/soft-off-setup?advanced-methods=wakeup&kscan-type=dkscan
 / {
     keys {
@@ -55,15 +58,15 @@
                 &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B &kp N &kp M &kp COMMA &kp DOT &kp SLASH &kp RSHIFT
                 &kp LCTRL &kp LALT &kp SPACE &kp RALT &kp RCTRL &kp UP
                 &kp LEFT &kp DOWN &kp RIGHT 
-                &mo BT   // Fn key
-
+                &mo BT
             >;
         };
 
-        BT {
+        bt_layer {
+            display-name = "BT";
             bindings = <
                 &none &none &none &none &none &none &none &none &none &none
-                &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2 &bt BT_CLR      &bt BT_DISC     &none &none &none &none &none &none &none &none &none &none
+                &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_CLR      &bt BT_DISC     &none &none &none &none &none &none &none &none &none &none
                 &none &none &none &none &none &none &none &none &none &none &none &none &none &none 
                 &none &none &none &none &none &none &none &none &none &none &none &none &none &none 
                 &none &none &none &none &none &none &none &none &none &none &none &none &none 
